@@ -1,5 +1,12 @@
 version: "3"
 services:
+  go:
+    build: 
+      context: ./demo-go
+      dockerfile: Dockerfile
+    image: mygo:5.0
+    ports:
+      - 1323:1323
   react:
     build: 
       context: ./demo-react
