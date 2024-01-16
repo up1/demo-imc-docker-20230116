@@ -1,0 +1,8 @@
+version: "3"
+services:
+  react:
+    build: 
+      context: ./demo-react
+      dockerfile: Dockerfile
+    image: myreact:5.0
+    
