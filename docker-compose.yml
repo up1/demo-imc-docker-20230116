@@ -1,5 +1,15 @@
 version: "3"
 services:
+  db:
+    image: mariadb:11.2.2-jammy
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_DATABASE=demo
+      - MARIADB_USER=user01
+      - MARIADB_PASSWORD=pass
+    volumes:
+      - ./abc:/var/lib/mysql
+
   go:
     build: 
       context: ./demo-go
