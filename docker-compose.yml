@@ -6,13 +6,15 @@ volumes:
 services:
   db:
     image: mariadb:11.2.2-jammy
+    container_name: db
     environment:
       - MARIADB_ROOT_PASSWORD=pass
       - MARIADB_DATABASE=demo
       - MARIADB_USER=user01
       - MARIADB_PASSWORD=pass
     volumes:
-      - abc:/var/lib/mysql
+      - ./db/table.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./db/data.sql:/docker-entrypoint-initdb.d/2.sql
 
   go:
     build: 
